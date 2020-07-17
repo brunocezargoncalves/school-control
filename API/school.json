@@ -3,22 +3,63 @@
     {
       "id": 1,
       "name": "Bruno",
-      "lastname": "Gonçalves"
+      "lastname": "Gonçalves",
+      "teacher": {
+        "id": 3,
+        "name": "Arthur"
+      }
     },
     {
       "name": "Amanda",
-      "lastname": "",
-      "id": 3
+      "lastname": "Slezinski",
+      "id": 3,
+      "teacher": {
+        "id": 3,
+        "name": "Arthur"
+      }
     },
     {
       "name": "Arthur",
-      "lastname": "",
-      "id": 4
+      "lastname": "Slezinski",
+      "id": 4,
+      "teacher": {
+        "id": 2,
+        "name": "João"
+      }
     },
     {
       "name": "Maria",
+      "lastname": "Gonçalves",
+      "id": 5,
+      "teacher": {
+        "id": 1,
+        "name": "José"
+      }
+    },
+    {
+      "name": "Teste",
       "lastname": "",
-      "id": 5
+      "teacher": {
+        "id": 2
+      },
+      "id": 6
+    }
+  ],
+  "teachers": [
+    {
+      "id": 1,
+      "name": "José",
+      "lastname": "Silva"
+    },
+    {
+      "id": 2,
+      "name": "João",
+      "lastname": "Gonçalves"
+    },
+    {
+      "id": 3,
+      "name": "Arthur",
+      "lastname": "Gonçalves"
     }
   ]
 }

@@ -1,17 +1,27 @@
 <template>
   <div id="app">
-    <Student />
+    <div id="wrapper">
+      <Nav />
+      <router-view :key="$route.fullPath"></router-view>
+    </div>
   </div>
 </template>
 
 <script>
-  import Student from "./components/Student/Students.vue";
+  import Nav from "./components/_nav/Nav";
+  import Teacher from "./components/Teacher/Teacher";
+  import Student from "./components/Student/Student";
+  import About from "./components/About/About";
 
   export default {
     name: "App",
     components: {
+      /* eslint-disable vue/no-unused-components */
+      Nav,
       Student,
-    },
+      Teacher,
+      About
+    }
   };
 </script>
 
@@ -39,25 +49,33 @@
   }
 
   #app {
+    width: 100%;
+  }
+
+  #app #wrapper {
     display: block;
     margin: 15px auto;
     width: 600px;
   }
 
-  #app table {
+  #app #wrapper table {
     text-align: center;
     margin: 15px 0 0;
     width: 100%;
   }
 
-  #app table th {
+  #app #wrapper table th {
     background-color: #2c3e50;
     color: #fff;
   }
 
-  #app table th,
-  #app table td {
+  #app #wrapper table th,
+  #app #wrapper table td {
     border: 1px solid #2c3e50;
     padding: 5px 0;
+  }
+
+  .clear {
+    clear: both;
   }
 </style>
