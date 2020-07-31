@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
-import Teacher from "./components/Teacher/Teacher";
-import Student from "./components/Student/Student";
+import Teachers from "./components/Teacher/List";
+import Students from "./components/Student/List";
 import StudentDetails from "./components/Student/Detail";
 import About from "./components/About/About";
 
@@ -9,22 +9,22 @@ Vue.use(Router);
 
 export default new Router({
     routes: [{
-        path: '/teacher',
+        path: '/teachers',
         name: 'Teachers',
-        component: Teacher
+        component: Teachers
     },
     {
-        path: '/student/:teacher_id',
+        path: '/students/teacher/:teacher_id',
         name: 'StudentsPerTeacher',
-        component: Student
+        component: Students
     },
     {
-        path: '/student/',
-        name: 'StudentList',
-        component: Student
+        path: '/students',
+        name: 'Students',
+        component: Students
     },
     {
-        path: '/student/detail/:id',
+        path: '/student/details/:student_id',
         name: 'StudentDetails',
         component: StudentDetails
     },

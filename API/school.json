@@ -35,14 +35,6 @@
         "id": 1,
         "name": "José"
       }
-    },
-    {
-      "name": "Teste",
-      "lastname": "",
-      "teacher": {
-        "id": 2
-      },
-      "id": 6
     }
   ],
   "teachers": [

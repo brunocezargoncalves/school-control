@@ -1,9 +1,9 @@
 <template>
   <div>
     <nav>
-      <router-link to="/student" class="first">Alunos</router-link>
-      <router-link to="/teacher">Professores</router-link>
-      <router-link to="/about">Sobre</router-link>
+      <router-link to="/students/" class="first">Alunos</router-link>
+      <router-link to="/teachers/">Professores</router-link>
+      <router-link to="/about/">Sobre</router-link>
     </nav>
     <div class="clear"></div>
   </div>

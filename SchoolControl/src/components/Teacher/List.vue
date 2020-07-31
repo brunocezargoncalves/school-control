@@ -23,7 +23,7 @@
         <tr v-for="(teacher, index) in teachers" :key="index">
           <td>{{ teacher.id }}</td>
           <router-link
-            :to="`./student/${ teacher.id }`"
+            :to="`../students/teacher/${ teacher.id }`"
             tag="td"
             style="cursor: pointer;"
           >

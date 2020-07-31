@@ -9,17 +9,17 @@
 
 <script>
   import Nav from "./components/_nav/Nav";
-  import Teacher from "./components/Teacher/Teacher";
-  import Student from "./components/Student/Student";
+  import TeacherList from "./components/Teacher/List";
+  import StudentList from "./components/Student/List";
   import About from "./components/About/About";
 
   export default {
     name: "App",
     components: {
-      /* eslint-disable vue/no-unused-components */
+      /* eslint-disable vue/no-unused-components */      
       Nav,
-      Student,
-      Teacher,
+      StudentList,
+      TeacherList,
       About
     }
   };
@@ -77,5 +77,9 @@
 
   .clear {
     clear: both;
+  }
+
+  .col-min {
+    width: 5%;
   }
 </style>

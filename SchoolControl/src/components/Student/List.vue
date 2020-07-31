@@ -26,9 +26,8 @@
       <tbody v-if="students.length">
         <tr v-for="(student, index) in students" :key="index">
           <td>{{ student.id }}</td>
-          <router-link :to="`./studant/detail/${ student.id }`" tag="td" style="cursor: pointer;"
-            >{{ student.name }} {{ studant.lastname }}</router-link
-          >
+          <router-link :to="`/student/details/${ student.id }`" tag="td" style="cursor: pointer;"
+            >{{ student.name }} {{ student.lastname }}</router-link>
           <td>
             <button @click="remove(student)">Remover</button>
           </td>
@@ -60,7 +59,7 @@ export default {
     if (this.teacherId) {
       this.getTeachers();
       this.$http
-        .get("http://localhost:3000/students?teacher.id=" + this.teacherId)
+        .get("http://localhost:3000/students/?teacher.id=" + this.teacherId)
         .then((res) => res.json())
         .then((retunedStudents) => (this.students = retunedStudents));
     } else {
@@ -68,6 +67,8 @@ export default {
         .get("http://localhost:3000/students")
         .then((res) => res.json())
         .then((retunedStudents) => (this.students = retunedStudents));
+
+        console.log(this.students.length);
     }
   },
   props: {},
