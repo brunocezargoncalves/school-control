@@ -1,4 +1,4 @@
-# SchoolControl
+# school-control
 
 ## Project setup
 ```

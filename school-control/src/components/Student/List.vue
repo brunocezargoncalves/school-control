@@ -1,42 +1,47 @@
 <template>
-  <div>
-    <Title
-      :text="
-        'Alunos' +
-          (teacherId != undefined ? ' do professor: ' + teacher.name : '')
-      "
-    />
-
-    <div v-if="teacherId">
-      <input
-        type="text"
-        placeholder="Nome do aluno"
-        v-model="name"
-        v-on:keyup.enter="add()"
-      />
-      <button @click="add()">Adicionar</button>
-    </div>
-
-    <table cellspacing="0" cellpadding="0">
-      <thead>
-        <th>Matrícula</th>
-        <th>Nome</th>
-        <th>Ações</th>
-      </thead>
-      <tbody v-if="students.length">
-        <tr v-for="(student, index) in students" :key="index">
-          <td>{{ student.id }}</td>
-          <router-link :to="`/student/details/${ student.id }`" tag="td" style="cursor: pointer;"
-            >{{ student.name }} {{ student.lastname }}</router-link>
-          <td>
-            <button @click="remove(student)">Remover</button>
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-if="!students.length">
-        Nenhum aluno encontrado!
-      </tbody>
-    </table>
+  <div class="wrap container">
+      <div class="row">
+        <div class="col">
+          <Title :text="'Alunos' + (teacherId != undefined ? ' do professor: ' + teacher.name : '')" />
+          <p>Lista de alunos</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <table class="table">
+            <thead>
+              <th>Matrícula</th>
+              <th>Nome</th>
+              <th>Ações</th>
+            </thead>
+            <tbody v-if="students.length">
+              <tr v-for="(student, index) in students" :key="index">
+                <td>{{ student.id }}</td>
+                <router-link
+                  :to="`/student/details/${student.id}`"
+                  tag="td"
+                  style="cursor: pointer;"
+                  >{{ student.name }} {{ student.lastname }}</router-link
+                >
+                <td>
+                  <button @click="remove(student)" class="btn btn-dark">Remover</button>
+                </td>
+              </tr>
+            </tbody>
+            <tbody v-if="!students.length">
+              Nenhum aluno encontrado!
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div v-if="teacherId" class="row">
+        <div class="col">
+          <h3>Adicionar</h3>
+          <p>Adicionar novo aluno</p>
+          <input type="text" placeholder="Nome do aluno" v-model="name" v-on:keyup.enter="add()" />
+          <button @click="add()" class="btn btn-dark">Adicionar</button>
+        </div>
+      </div>
   </div>
 </template>
 
@@ -68,7 +73,7 @@ export default {
         .then((res) => res.json())
         .then((retunedStudents) => (this.students = retunedStudents));
 
-        console.log(this.students.length);
+      console.log(this.students.length);
     }
   },
   props: {},

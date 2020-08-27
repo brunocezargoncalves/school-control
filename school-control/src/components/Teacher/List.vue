@@ -1,46 +1,54 @@
 <template>
-  <div>
-    <Title text="Professores" />
-
-    <div>
-      <input
-        type="text"
-        placeholder="Nome do professor"
-        v-model="name"
-        v-on:keyup.enter="add()"
-      />
-      <button @click="add()">Adicionar</button>
+  <div class="wrap container">
+    <div class="row">
+      <div class="col">
+        <Title text="Professores" />
+        <p>Lista de professores</p>
+      </div>
     </div>
-
-    <table cellspacing="0" cellpadding="0">
-      <thead>
-        <th>Matrícula</th>
-        <th>Nome</th>
-        <th>Quant. Alunos</th>
-        <th>Ações</th>
-      </thead>
-      <tbody v-if="teachers.length">
-        <tr v-for="(teacher, index) in teachers" :key="index">
-          <td>{{ teacher.id }}</td>
-          <router-link
-            :to="`../students/teacher/${ teacher.id }`"
-            tag="td"
-            style="cursor: pointer;"
-          >
-            {{ teacher.name }} {{ teacher.lastname }}
-          </router-link>
-          <td>
-            {{ teacher.numberOfStudents }}
-          </td>
-          <td>
-            <button @click="remove(teacher)">Remover</button>
-          </td>
-        </tr>
-      </tbody>
-      <tbody v-if="!teachers.length">
-        Nenhum professor encontrado!
-      </tbody>
-    </table>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Quant. Alunos</th>
+            <th>Ações</th>
+          </thead>
+          <tbody v-if="teachers.length">
+            <tr v-for="(teacher, index) in teachers" :key="index">
+              <td>{{ teacher.id }}</td>
+              <router-link
+                :to="`../students/teacher/${ teacher.id }`"
+                tag="td"
+                style="cursor: pointer;"
+              >
+                {{ teacher.name }} {{ teacher.lastname }}
+              </router-link>
+              <td>
+                {{ teacher.numberOfStudents }}
+              </td>
+              <td>
+                <button @click="remove(teacher)" class="btn btn-dark">Remover</button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-if="!teachers.length">
+            Nenhum professor encontrado!
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <h3>Adicionar</h3>
+        <p>Adicionar novo professor</p>
+        <div class="form-group">
+          <input v-model="name" v-on:keyup.enter="add()" type="text" placeholder="Nome do professor" class="form-control" />
+          <button @click="add()" class="btn btn-dark">Adicionar</button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
