@@ -1,0 +1,49 @@
+CRIAR PROJETO VIA TERMINAL
+
+1. Instalar o VUE CLI
+npm install -g @vue/cli
+
+2. Criar projeto
+vue create [nome_do_projeto]
+
+2.1. Selecionar versao default/automatica
+
+3. Executar o projeto
+cd [nome_do_projeto]
+npm run serve
+
+
+CRIAR PROJETO VIA UI
+
+1. Comando para abrir a interface
+vue ui
+
+
+CRIAR SERVIDOR FAKE EM JSON
+
+1. Instalar o json-server
+npm install -g json-server
+
+2. Criar o "banco" em formato de aquivo json em algum diretorio, por exemplo, api
+
+3. Executar o json-server no diretorio que o aquivo json foi criado
+json-server --watch [nome_do_banco].json
+
+
+INSTALAR EXTENSAO VUE-RESOURCE PARA NAVEGACAO HTTP
+
+1. Instalar na pasta do projeto
+npm install vue-resource
+
+2. Adicionar na main.js
+import VueResource from 'vue-resource'
+
+INSTALAR EXTENSAO VUE-ROUTER PARA ALTERNAR TELAS SPA
+
+1. Instalar na pasta do projeto
+npm install vue-router
+
+2. Criar arquivo router.js
+
+3. Configurar app.vue e main.js
+

@@ -1,47 +1,64 @@
 <template>
   <div class="wrap container">
-      <div class="row">
-        <div class="col">
-          <Title :text="'Alunos' + (teacherId != undefined ? ' do professor: ' + teacher.name : '')" />
-          <p>Lista de alunos</p>
+    <div class="row">
+      <div class="col">
+        <Title
+          :text="
+            'Alunos' +
+              (teacherId != undefined ? ' do professor: ' + teacher.name : '')
+          "
+          description="Lista de alunos"
+        />
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <table class="table">
+          <thead>
+            <th>Matrícula</th>
+            <th>Nome</th>
+            <th>Ações</th>
+          </thead>
+          <tbody v-if="students.length">
+            <tr v-for="(student, index) in students" :key="index">
+              <td>{{ student.id }}</td>
+              <router-link
+                :to="`/student/details/${student.id}`"
+                tag="td"
+                style="cursor: pointer;"
+                >{{ student.name }} {{ student.lastname }}</router-link
+              >
+              <td>
+                <button @click="remove(student)" class="btn btn-dark">
+                  Remover
+                </button>
+              </td>
+            </tr>
+          </tbody>
+          <tbody v-if="!students.length">
+            Nenhum aluno encontrado!
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div v-if="teacherId" class="row">
+      <div class="col">
+        <h3>Adicionar</h3>
+        <p>Adicionar novo aluno</p>
+        <div class="form-inline w-100">
+          <input
+            type="text"
+            placeholder="Nome do aluno"
+            v-model="name"
+            v-on:keyup.enter="add()"
+            class="form-control pr-sm-4 mw-50"
+          />
+          <button @click="add()" class="btn btn-dark px-sm-4 mw-50">
+            Adicionar
+          </button>
         </div>
       </div>
-      <div class="row">
-        <div class="col">
-          <table class="table">
-            <thead>
-              <th>Matrícula</th>
-              <th>Nome</th>
-              <th>Ações</th>
-            </thead>
-            <tbody v-if="students.length">
-              <tr v-for="(student, index) in students" :key="index">
-                <td>{{ student.id }}</td>
-                <router-link
-                  :to="`/student/details/${student.id}`"
-                  tag="td"
-                  style="cursor: pointer;"
-                  >{{ student.name }} {{ student.lastname }}</router-link
-                >
-                <td>
-                  <button @click="remove(student)" class="btn btn-dark">Remover</button>
-                </td>
-              </tr>
-            </tbody>
-            <tbody v-if="!students.length">
-              Nenhum aluno encontrado!
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <div v-if="teacherId" class="row">
-        <div class="col">
-          <h3>Adicionar</h3>
-          <p>Adicionar novo aluno</p>
-          <input type="text" placeholder="Nome do aluno" v-model="name" v-on:keyup.enter="add()" />
-          <button @click="add()" class="btn btn-dark">Adicionar</button>
-        </div>
-      </div>
+    </div>
   </div>
 </template>
 

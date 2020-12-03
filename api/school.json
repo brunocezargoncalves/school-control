@@ -1,15 +1,6 @@
 {
   "students": [
     {
-      "id": 1,
-      "name": "Bruno",
-      "lastname": "Gonçalves",
-      "teacher": {
-        "id": 3,
-        "name": "Arthur"
-      }
-    },
-    {
       "name": "Amanda",
       "lastname": "Slezinski",
       "id": 3,
@@ -43,6 +34,30 @@
         "id": 5
       },
       "id": 6
+    },
+    {
+      "name": "Teste Aluno 01",
+      "lastname": "",
+      "teacher": {
+        "id": 6
+      },
+      "id": 7
+    },
+    {
+      "name": "amanda",
+      "lastname": "",
+      "teacher": {
+        "id": 3
+      },
+      "id": 8
+    },
+    {
+      "name": "Arthur",
+      "lastname": "",
+      "teacher": {
+        "id": 7
+      },
+      "id": 9
     }
   ],
   "teachers": [
@@ -60,6 +75,16 @@
       "name": "teste 2",
       "lastname": "",
       "id": 5
+    },
+    {
+      "name": "Teste 4",
+      "lastname": "",
+      "id": 6
+    },
+    {
+      "name": "Amanda",
+      "lastname": "",
+      "id": 7
     }
   ]
 }

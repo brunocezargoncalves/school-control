@@ -2,8 +2,7 @@
   <div class="wrap container">
     <div class="row">
       <div class="col">
-        <Title text="Professores" />
-        <p>Lista de professores</p>
+        <Title text="Professores" description="Lista de professores" />
       </div>
     </div>
     <div class="row">
@@ -19,7 +18,7 @@
             <tr v-for="(teacher, index) in teachers" :key="index">
               <td>{{ teacher.id }}</td>
               <router-link
-                :to="`../students/teacher/${ teacher.id }`"
+                :to="`../students/teacher/${teacher.id}`"
                 tag="td"
                 style="cursor: pointer;"
               >
@@ -29,7 +28,9 @@
                 {{ teacher.numberOfStudents }}
               </td>
               <td>
-                <button @click="remove(teacher)" class="btn btn-dark">Remover</button>
+                <button @click="remove(teacher)" class="btn btn-dark">
+                  Remover
+                </button>
               </td>
             </tr>
           </tbody>
@@ -43,9 +44,15 @@
       <div class="col">
         <h3>Adicionar</h3>
         <p>Adicionar novo professor</p>
-        <div class="form-group">
-          <input v-model="name" v-on:keyup.enter="add()" type="text" placeholder="Nome do professor" class="form-control" />
-          <button @click="add()" class="btn btn-dark">Adicionar</button>
+        <div class="form-inline mw-100">
+          <input
+            v-model="name"
+            v-on:keyup.enter="add()"
+            type="text"
+            placeholder="Nome do professor"
+            class="form-control pr-sm-4 mw-50"
+          />
+          <button @click="add()" class="btn btn-dark px-sm-4 mw-50">Adicionar</button>
         </div>
       </div>
     </div>
